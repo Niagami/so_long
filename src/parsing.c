@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:25:12 by jteste            #+#    #+#             */
-/*   Updated: 2023/12/28 15:50:04 by jteste           ###   ########.fr       */
+/*   Updated: 2023/12/28 17:08:10 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ int	ft_checkmap(t_main *mainstruct)
 
 int	ft_checksize(t_main *mainstruct)
 {
-	int	i;
-	int	y;
+	int		i;
+	size_t	linelenght;
 
 	i = 0;
-	y = 0;
+	linelenght = ft_strlen(mainstruct->map[i]);
+	printf("premiere ligne %zu\n", linelenght);
 	while (mainstruct->map[i] != NULL)
 	{
-		if ()
-		{
-			/* code */
-		}
-		
+		printf("ligne suivante %zu\n", ft_strlen(mainstruct->map[i]));
+		if (ft_strlen(mainstruct->map[i]) != linelenght)
+			return (1);
 		i++;
 	}
+	return (0);
 }
