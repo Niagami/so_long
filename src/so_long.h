@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 11:51:45 by jteste            #+#    #+#             */
-/*   Updated: 2023/12/28 13:10:03 by jteste           ###   ########.fr       */
+/*   Created: 2023/12/28 12:45:34 by jteste            #+#    #+#             */
+/*   Updated: 2023/12/28 13:13:34 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
-# endif
-
-# include <stdlib.h>
-# include <unistd.h>
+# include "../printf/ft_printf.h"
+# include "../get_next_line/get_next_line.h"
+# include "../MLX42/include/MLX42/MLX42.h"
 # include <stdio.h>
+# include <stdlib.h>
+# include <stdbool.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
-char	*get_next_line(int fd);
-char	*ft_get_line(char *stock);
-char	*ft_read_and_copy(int fd, char *str);
-char	*ft_clear_stock(char *stock);
-char	*ft_strchr(const char *str, int tofind);
-char	*ft_strjoins(char *stock, char *buffer);
-size_t	ft_strlen(const char *str);
+int	ft_open_map(void);
 
 #endif

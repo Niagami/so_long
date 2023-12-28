@@ -17,7 +17,7 @@ FTPRINTF	:= ./printf
 GNL			:= ./get_next_line
 
 HEADERS	:= -I ./include -I $(LIBMLX)/include
-LIBS	:= $(GNL)/gnl.a $(FTPRINTF)/libftprintf.a $(LIBMLX)/libmlx42.a  -lglfw -L "/Users/mmorue/.brew/opt/glfw/lib/" -lm 
+LIBS	:= $(GNL)/gnl.a $(FTPRINTF)/libftprintf.a $(LIBMLX)/libmlx42.a  -lglfw -lm 
 SRCS	:= $(shell find ./src -iname "*.c")
 OBJS	:= ${SRCS:.c=.o}
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: niagami <niagami@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:51:43 by jteste            #+#    #+#             */
-/*   Updated: 2023/11/30 20:47:48 by niagami          ###   ########.fr       */
+/*   Updated: 2023/12/28 13:10:07 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ char	*ft_read_and_copy(int fd, char *stock)
 			return (NULL);
 		}
 		buffer[read_size] = '\0';
-		stock = ft_strjoin(stock, buffer);
+		stock = ft_strjoins(stock, buffer);
 	}
 	free(buffer);
 	return (stock);

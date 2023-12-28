@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: niagami <niagami@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:51:41 by jteste            #+#    #+#             */
-/*   Updated: 2023/11/30 20:47:47 by niagami          ###   ########.fr       */
+/*   Updated: 2023/12/28 13:10:11 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strjoin(char *stock, char *buffer)
+char	*ft_strjoins(char *stock, char *buffer)
 {
 	size_t		i;
 	size_t		j;
