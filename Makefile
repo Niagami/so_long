@@ -10,32 +10,45 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:= Game
-CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -Ofast
-LIBMLX	:= ./lib/MLX42
+NAME		:= so_long
+CFLAGS		:= -Wextra -Wall -Werror -Wunreachable-code -Ofast
+LIBMLX		:= ./MLX42/build
+FTPRINTF	:= ./printf
+GNL			:= ./get_next_line
 
 HEADERS	:= -I ./include -I $(LIBMLX)/include
-LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
+LIBS	:= $(GNL)/gnl.a $(FTPRINTF)/libftprintf.a $(LIBMLX)/libmlx42.a  -lglfw -L "/Users/mmorue/.brew/opt/glfw/lib/" -lm 
 SRCS	:= $(shell find ./src -iname "*.c")
 OBJS	:= ${SRCS:.c=.o}
 
 all: libmlx $(NAME)
 
+gnl:
+	@$(MAKE) -C $(GNL)
+
+ftprintf:
+	@$(MAKE) -C $(FTPRINTF)
+
 libmlx:
-	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
+	@$(MAKE) -C $(LIBMLX)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
 
-$(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+$(NAME): $(OBJS) ftprintf gnl 
+	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME) 
 
 clean:
-	@rm -rf $(OBJS)
-	@rm -rf $(LIBMLX)/build
+	@rm -f $(OBJS)
+	@$(MAKE) -C $(GNL) clean
+	@$(MAKE) -C $(FTPRINTF) clean
+	@$(MAKE) -C $(LIBMLX) clean
 
 fclean: clean
-	@rm -rf $(NAME)
+	@rm -f $(NAME)
+	@$(MAKE) -C $(GNL) fclean
+	@$(MAKE) -C $(FTPRINTF) fclean
+	@$(MAKE) -C $(LIBMLX) fclean
 
 re: clean all
 
