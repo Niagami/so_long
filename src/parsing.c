@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 16:39:16 by jteste            #+#    #+#             */
-/*   Updated: 2023/11/29 14:28:06 by jteste           ###   ########.fr       */
+/*   Created: 2023/12/28 15:25:12 by jteste            #+#    #+#             */
+/*   Updated: 2023/12/28 15:50:04 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include "get_next_line.h"
+#include "so_long.h"
 
-int	main(void)
+int	ft_checkmap(t_main *mainstruct)
 {
-	int		fd;
-	char	*line;
-
-	fd = open("test.txt", O_RDONLY);
-	while (1)
-	{
-		line = get_next_line(fd);
-		printf("%s", line);
-		if (line == NULL)
-			break ;
-		free(line);
-	}
-	close(fd);
+	ft_checksize(mainstruct);
 	return (0);
+}
+
+int	ft_checksize(t_main *mainstruct)
+{
+	int	i;
+	int	y;
+
+	i = 0;
+	y = 0;
+	while (mainstruct->map[i] != NULL)
+	{
+		if ()
+		{
+			/* code */
+		}
+		
+		i++;
+	}
 }

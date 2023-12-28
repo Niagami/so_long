@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:39:50 by jteste            #+#    #+#             */
-/*   Updated: 2023/12/28 14:00:29 by jteste           ###   ########.fr       */
+/*   Updated: 2023/12/28 15:50:08 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 int	main(void)
 {
-	ft_open_map();
+	t_main	mainstruct;
+
+	ft_open_map(&mainstruct);
+	ft_checkmap(&mainstruct);
 	return (0);
 }
