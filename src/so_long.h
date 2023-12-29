@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:45:34 by jteste            #+#    #+#             */
-/*   Updated: 2023/12/28 15:50:06 by jteste           ###   ########.fr       */
+/*   Updated: 2023/12/29 11:30:12 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ int	ft_open_map(t_main *mainstruct);
 int	ft_copy_map(t_main *mainstruct);
 int	ft_checkmap(t_main *mainstruct);
 int	ft_checksize(t_main *mainstruct);
+int	ft_checksign(t_main *mainstruct);
 
 #endif
