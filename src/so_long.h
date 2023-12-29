@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:45:34 by jteste            #+#    #+#             */
-/*   Updated: 2023/12/29 11:30:12 by jteste           ###   ########.fr       */
+/*   Updated: 2023/12/29 14:47:42 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,19 @@ typedef struct s_main
 {
 	char	**map;
 	int		count_line;
+	int		map_exit;
+	int		collectible;
+	int		start_pos;
 }				t_main;
 
-int	ft_open_map(t_main *mainstruct);
-int	ft_copy_map(t_main *mainstruct);
-int	ft_checkmap(t_main *mainstruct);
-int	ft_checksize(t_main *mainstruct);
-int	ft_checksign(t_main *mainstruct);
+int		ft_struct_init(t_main *mainstruct);
+int		ft_open_map(t_main *mainstruct);
+int		ft_copy_map(t_main *mainstruct);
+int		ft_check_map(t_main *mainstruct);
+int		ft_check_size(t_main *mainstruct);
+int		ft_check_sign(t_main *mainstruct);
+int		ft_check_count(t_main *mainstruct);
+int		ft_check_walls(t_main *mainstruct);
+void	ft_error_message(char *message);
 
 #endif

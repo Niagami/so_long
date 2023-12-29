@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:43:27 by jteste            #+#    #+#             */
-/*   Updated: 2023/12/28 15:50:07 by jteste           ###   ########.fr       */
+/*   Updated: 2023/12/29 12:20:32 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	ft_open_map(t_main *mainstruct)
 	int		fd;
 	char	*line;
 
-	mainstruct->count_line = 0;
 	line = NULL;
 	fd = open("maps/test.ber", O_RDONLY);
 	if (fd == -1)
@@ -55,6 +54,7 @@ int	ft_copy_map(t_main *mainstruct)
 		if (line == NULL)
 			break ;
 		mainstruct->map[i] = ft_strdup(line);
+		mainstruct->count_line++;
 		i++;
 		free(line);
 	}

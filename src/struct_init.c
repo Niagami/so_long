@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   struct_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 12:39:50 by jteste            #+#    #+#             */
-/*   Updated: 2023/12/29 14:39:28 by jteste           ###   ########.fr       */
+/*   Created: 2023/12/29 12:16:57 by jteste            #+#    #+#             */
+/*   Updated: 2023/12/29 12:22:27 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(void)
+int	ft_struct_init(t_main *mainstruct)
 {
-	t_main	mainstruct;
-
-	ft_struct_init(&mainstruct);
-	ft_open_map(&mainstruct);
-	ft_check_map(&mainstruct);
+	mainstruct->count_line = 0;
+	mainstruct->map_exit = 0;
+	mainstruct->collectible = 0;
+	mainstruct->start_pos = 0;
 	return (0);
 }
