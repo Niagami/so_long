@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:25:12 by jteste            #+#    #+#             */
-/*   Updated: 2023/12/29 14:54:09 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/08 13:56:04 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 int	ft_check_map(t_main *mainstruct)
 {
-	if (ft_check_sign(mainstruct) == 1)
+	if (ft_check_format(mainstruct) == false)
+		ft_error_message("Wrong map format\n");
+	if (ft_check_sign(mainstruct) == false)
 		ft_error_message("Wrong charactere in map\n");
-	if (ft_check_size(mainstruct) == 1)
+	if (ft_check_size(mainstruct) == false)
 		ft_error_message("Map is not a rectangle\n");
-	if (ft_check_count(mainstruct) == 1)
+	if (ft_check_count(mainstruct) == false)
 		ft_error_message("Wrong number of Start, Exit or collectible\n");
-	if (ft_check_walls(mainstruct) == 1)
+	if (ft_check_walls(mainstruct) == false)
 		ft_error_message("Map not surrounded by walls\n");
 	return (0);
 }
@@ -40,10 +42,10 @@ int	ft_check_size(t_main *mainstruct)
 		else
 			next_line_lenght = ft_strlen(mainstruct->map[i]);
 		if (next_line_lenght != first_line_lenght)
-			return (1);
+			return (false);
 		i++;
 	}
-	return (0);
+	return (true);
 }
 
 int	ft_check_sign(t_main *mainstruct)
@@ -64,12 +66,12 @@ int	ft_check_sign(t_main *mainstruct)
 			&& (mainstruct->map[i][j] != 'P')
 			&& (mainstruct->map[i][j] != 'E')
 			&& (mainstruct->map[i][j] != '\n'))
-				return (1);
+				return (false);
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (true);
 }
 
 int	ft_check_count(t_main *mainstruct)
@@ -96,9 +98,9 @@ int	ft_check_count(t_main *mainstruct)
 	}
 	if ((mainstruct->map_exit == 1) && (mainstruct->start_pos == 1)
 		&& (mainstruct->collectible > 0))
-		return (0);
+		return (true);
 	else
-		return (1);
+		return (false);
 }
 
 int	ft_check_walls(t_main *mainstruct)
@@ -112,7 +114,7 @@ int	ft_check_walls(t_main *mainstruct)
 	{
 		if ((mainstruct->map[0][i] != '1')
 			|| (mainstruct->map[mainstruct->count_line - 1][i] != '1'))
-			return (1);
+			return (false);
 		i++;
 	}
 	i = 0;
@@ -120,8 +122,8 @@ int	ft_check_walls(t_main *mainstruct)
 	{
 		if ((mainstruct->map[i][0] != '1')
 			|| (mainstruct->map[i][line_lenght - 1] != '1'))
-			return (1);
+			return (false);
 		i++;
 	}	
-	return (0);
+	return (true);
 }

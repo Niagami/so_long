@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 12:39:50 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/08 13:09:13 by jteste           ###   ########.fr       */
+/*   Created: 2024/01/08 13:11:00 by jteste            #+#    #+#             */
+/*   Updated: 2024/01/08 13:53:16 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char *argv[])
+int	ft_check_format(t_main *mainstruct)
 {
-	t_main	mainstruct;
+	size_t	i;
 
-	if (argc != 2)
-	{
-		ft_error_message("Wrong number of arguments");
-		return (1);
-	}
+	i = ft_strlen(mainstruct->mapname);
+	if ((mainstruct->mapname[i - 1] == 'r')
+		&& (mainstruct->mapname[i - 2] == 'e')
+		&& (mainstruct->mapname[i - 3] == 'b')
+		&& (mainstruct->mapname[i - 4] == '.'))
+		return (true);
 	else
-	{
-		mainstruct.mapname = ft_strdup(argv[1]);
-		ft_struct_init(&mainstruct);
-		ft_open_map(&mainstruct);
-		ft_check_map(&mainstruct);
-		return (0);
-	}
+		return (false);
 }
