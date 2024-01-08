@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:25:12 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/08 13:56:04 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/08 15:55:05 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	ft_check_map(t_main *mainstruct)
 {
+	int	items;
+
 	if (ft_check_format(mainstruct) == false)
 		ft_error_message("Wrong map format\n");
 	if (ft_check_sign(mainstruct) == false)
@@ -24,6 +26,10 @@ int	ft_check_map(t_main *mainstruct)
 		ft_error_message("Wrong number of Start, Exit or collectible\n");
 	if (ft_check_walls(mainstruct) == false)
 		ft_error_message("Map not surrounded by walls\n");
+	items = mainstruct->collectible + mainstruct->map_exit;
+	if ((ft_flood_fill(mainstruct->map, mainstruct->player_pos_x,
+				mainstruct->player_pos_y, &items)) == false)
+		ft_error_message("No valid path in the map");
 	return (0);
 }
 
@@ -89,7 +95,7 @@ int	ft_check_count(t_main *mainstruct)
 			if (mainstruct->map[i][j] == 'E')
 				mainstruct->map_exit++;
 			if (mainstruct->map[i][j] == 'P')
-				mainstruct->start_pos++;
+				ft_save_player_pos(mainstruct, i, j);
 			if (mainstruct->map[i][j] == 'C')
 				mainstruct->collectible++;
 			j++;

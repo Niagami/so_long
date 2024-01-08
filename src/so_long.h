@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:45:34 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/08 13:30:44 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/08 15:50:54 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_main
 	int		map_exit;
 	int		collectible;
 	int		start_pos;
+	int		player_pos_x;
+	int		player_pos_y;
 }				t_main;
 
 int		ft_struct_init(t_main *mainstruct);
@@ -41,6 +43,8 @@ int		ft_check_sign(t_main *mainstruct);
 int		ft_check_count(t_main *mainstruct);
 int		ft_check_walls(t_main *mainstruct);
 int		ft_check_format(t_main *mainstruct);
+void	ft_save_player_pos(t_main *mainstruct, int i, int j);
+int		ft_flood_fill(char	**map, int x, int y, int *items);
 void	ft_error_message(char *message);
 
 #endif
