@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:43:27 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/08 14:30:36 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/09 16:14:32 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_open_map(t_main *mainstruct)
 
 	line = NULL;
 	fd = open(mainstruct->mapname, O_RDONLY);
-	if (fd == -1)
+	if (read(fd, 0, 0) < 0 || fd == -1)
 		ft_error_message("Error opening the map");
 	while ((line != NULL) || (mainstruct->count_line == 0))
 	{

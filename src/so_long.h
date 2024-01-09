@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:45:34 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/08 15:50:54 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/09 15:29:51 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,26 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 
+typedef struct s_collectible
+{
+	int		x;
+	int		y;
+	bool	collected;
+}	t_collectible;
+
 typedef struct s_main
 {
-	char	*mapname;
-	char	**map;
-	int		count_line;
-	int		map_exit;
-	int		collectible;
-	int		start_pos;
-	int		player_pos_x;
-	int		player_pos_y;
+	char			*mapname;
+	char			**map;
+	int				count_line;
+	int				map_exit;
+	int				collectible_count;
+	int				start_pos;
+	int				player_pos_x;
+	int				player_pos_y;
+	void			*mlx_ptr;
+	void			*win_ptr;
+	t_collectible	*collectible;
 }				t_main;
 
 int		ft_struct_init(t_main *mainstruct);
@@ -44,6 +54,7 @@ int		ft_check_count(t_main *mainstruct);
 int		ft_check_walls(t_main *mainstruct);
 int		ft_check_format(t_main *mainstruct);
 void	ft_save_player_pos(t_main *mainstruct, int i, int j);
+void	ft_save_collectible_pos(t_main *mainstruct);
 int		ft_flood_fill(char	**map, int x, int y, int *items);
 void	ft_error_message(char *message);
 

@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:25:12 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/08 15:55:05 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/09 16:20:54 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ int	ft_check_map(t_main *mainstruct)
 		ft_error_message("Wrong number of Start, Exit or collectible\n");
 	if (ft_check_walls(mainstruct) == false)
 		ft_error_message("Map not surrounded by walls\n");
-	items = mainstruct->collectible + mainstruct->map_exit;
+	items = mainstruct->collectible_count + mainstruct->map_exit;
 	if ((ft_flood_fill(mainstruct->map, mainstruct->player_pos_x,
 				mainstruct->player_pos_y, &items)) == false)
 		ft_error_message("No valid path in the map");
+	ft_open_map(mainstruct);
+	ft_save_collectible_pos(mainstruct);
 	return (0);
 }
 
@@ -97,13 +99,13 @@ int	ft_check_count(t_main *mainstruct)
 			if (mainstruct->map[i][j] == 'P')
 				ft_save_player_pos(mainstruct, i, j);
 			if (mainstruct->map[i][j] == 'C')
-				mainstruct->collectible++;
+				mainstruct->collectible_count++;
 			j++;
 		}
 		i++;
 	}
 	if ((mainstruct->map_exit == 1) && (mainstruct->start_pos == 1)
-		&& (mainstruct->collectible > 0))
+		&& (mainstruct->collectible_count > 0))
 		return (true);
 	else
 		return (false);
