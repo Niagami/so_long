@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:45:34 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/09 15:29:51 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/09 16:59:21 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 # include <stdbool.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+
+# define WIDTH 1920
+# define HEIGHT 1080
 
 typedef struct s_collectible
 {
