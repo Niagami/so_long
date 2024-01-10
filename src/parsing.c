@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:25:12 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/09 16:20:54 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/10 15:56:25 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ int	ft_check_map(t_main *mainstruct)
 	if ((ft_flood_fill(mainstruct->map, mainstruct->player_pos_x,
 				mainstruct->player_pos_y, &items)) == false)
 		ft_error_message("No valid path in the map");
+	free(mainstruct->map);
 	ft_open_map(mainstruct);
+	free(mainstruct->mapname);
 	ft_save_collectible_pos(mainstruct);
 	return (0);
 }

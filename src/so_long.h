@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:45:34 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/09 16:59:21 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/10 15:38:55 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,15 @@ typedef struct s_main
 	int				player_pos_y;
 	void			*mlx_ptr;
 	void			*win_ptr;
+	mlx_image_t		**image_bg;
+	mlx_image_t		**image_collectible;
+	mlx_image_t		**image_player;
+	mlx_texture_t	**texture_player;
+	mlx_texture_t	**texture_bg;
+	mlx_texture_t	**texture_exit;
+	mlx_texture_t	**texture_collectible;
 	t_collectible	*collectible;
+	int				index;
 }				t_main;
 
 int		ft_struct_init(t_main *mainstruct);
@@ -60,5 +68,7 @@ void	ft_save_player_pos(t_main *mainstruct, int i, int j);
 void	ft_save_collectible_pos(t_main *mainstruct);
 int		ft_flood_fill(char	**map, int x, int y, int *items);
 void	ft_error_message(char *message);
+int		ft_load_texture(t_main *mainstruct);
+int		ft_map_size(t_main *mainstruct);
 
 #endif
