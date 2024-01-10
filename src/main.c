@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:39:50 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/10 15:01:39 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/10 16:24:23 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char *argv[])
 	mainstruct.mlx_ptr = mlx_init(WIDTH, HEIGHT, "So_long", false);
 	if (mainstruct.mlx_ptr == NULL)
 		return (1);
-	ft_load_texture(&mainstruct);
+	ft_load_image(&mainstruct);
 	free(mainstruct.mlx_ptr);
 	return (0);
 }
