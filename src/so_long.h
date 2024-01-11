@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:45:34 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/11 13:29:31 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/11 16:58:58 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_main
 {
 	char			*mapname;
 	char			**map;
+	int				map_size;
 	int				count_line;
 	int				map_exit;
 	int				collectible_count;
@@ -47,6 +48,7 @@ typedef struct s_main
 	mlx_image_t		**image_bg;
 	mlx_image_t		**image_collectible;
 	mlx_image_t		**image_player;
+	mlx_image_t		**image_exit;
 	mlx_texture_t	**texture_player;
 	mlx_texture_t	**texture_bg;
 	mlx_texture_t	**texture_exit;
@@ -72,5 +74,9 @@ int		ft_load_texture(t_main *mainstruct);
 int		ft_load_image(t_main *mainstruct);
 int		ft_map_size(t_main *mainstruct);
 int		ft_load_png(t_main *mainstruct);
+int		ft_texture_to_image(t_main *mainstruct);
+int		ft_bg_image(t_main *mainstruct);
+int		ft_collectible_image(t_main *mainstruct);
+int		ft_exit_image(t_main *mainstruct);
 
 #endif
