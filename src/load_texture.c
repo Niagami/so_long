@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:58:25 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/10 17:03:28 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/11 13:36:55 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,30 @@ int	ft_load_texture(t_main *mainstruct)
 	if (mainstruct->texture_exit == NULL)
 		ft_error_message("Malloc Error");
 	mainstruct->texture_exit[1] = NULL;
-	mainstruct->texture_player = malloc(5 * sizeof(mlx_texture_t));
+	mainstruct->texture_player = malloc(2 * sizeof(mlx_texture_t)); // doit malloc 5 au final 
 	if (mainstruct->texture_player == NULL)
 		ft_error_message("Malloc Error");
-	mainstruct->texture_player[4] = NULL;
+	mainstruct->texture_player[1] = NULL;
+	ft_load_png(mainstruct);
+	return (0);
+}
+
+int	ft_load_png(t_main *mainstruct)
+{
+	mainstruct->texture_bg[0] = mlx_load_png("./img/bg.png");
+	if (mainstruct->texture_bg[0] == NULL)
+		ft_error_message("Error loading background texture");
+	mainstruct->texture_bg[1] = mlx_load_png("./img/wall.png");
+	if (mainstruct->texture_bg[1] == NULL)
+		ft_error_message("Error loading wall texture");
+	mainstruct->texture_collectible[0] = mlx_load_png("./img/collectible.png");
+	if (mainstruct->texture_collectible[0] == NULL)
+		ft_error_message("Error loading collectible texture");
+	mainstruct->texture_exit[0] = mlx_load_png("./img/exit.png");
+	if (mainstruct->texture_exit[0] == NULL)
+		ft_error_message("Error loading exit texture");
+	mainstruct->texture_player[0] = mlx_load_png("./img/player.png");
+	if (mainstruct->texture_player[0] == NULL)
+		ft_error_message("Error loading player texture");
 	return (0);
 }
