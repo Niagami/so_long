@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:40:12 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/11 17:02:37 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/11 17:03:45 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int	ft_collectible_image(t_main *mainstruct)
 
 int	ft_exit_image(t_main *mainstruct)
 {
-	mainstruct->image_exit[0] = mlx_texture_to_image(mainstruct->mlx_ptr, mainstruct->texture_exit[0]);
+	mainstruct->image_exit[0] = mlx_texture_to_image
+		(mainstruct->mlx_ptr, mainstruct->texture_exit[0]);
 	return (0);
 }
