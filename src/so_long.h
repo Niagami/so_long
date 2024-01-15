@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:45:34 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/11 16:58:58 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/15 13:37:41 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIDTH 3840
+# define HEIGHT 2160
 
 typedef struct s_collectible
 {
@@ -55,6 +55,7 @@ typedef struct s_main
 	mlx_texture_t	**texture_collectible;
 	t_collectible	*collectible;
 	int				index;
+	int				count;
 }				t_main;
 
 int		ft_struct_init(t_main *mainstruct);
@@ -78,5 +79,8 @@ int		ft_texture_to_image(t_main *mainstruct);
 int		ft_bg_image(t_main *mainstruct);
 int		ft_collectible_image(t_main *mainstruct);
 int		ft_exit_image(t_main *mainstruct);
+int		ft_player_image(t_main *mainstruct);
+int		ft_display_image(t_main *mainstruct);
+int		ft_display_bg(t_main *smain);
 
 #endif

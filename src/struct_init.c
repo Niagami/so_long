@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 12:16:57 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/11 16:09:27 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/15 12:51:22 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	ft_struct_init(t_main *mainstruct)
 	mainstruct->collectible_count = 0;
 	mainstruct->start_pos = 0;
 	mainstruct->map_size = 0;
+	mainstruct->count = 0;
 	return (0);
 }
 

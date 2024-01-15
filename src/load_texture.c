@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:58:25 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/11 17:00:40 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/15 12:55:04 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,20 @@
 int	ft_load_image(t_main *mainstruct)
 {
 	mainstruct->map_size = ft_map_size(mainstruct);
-	// printf("%d\n", mainstruct->map_size);
-	mainstruct->image_bg = malloc((mainstruct->map_size + 1)
+	mainstruct->image_bg = malloc((mainstruct->map_size)
 			* sizeof(mlx_image_t));
 	if (mainstruct->image_bg == NULL)
 		ft_error_message("Malloc Error");
-	mainstruct->image_bg[mainstruct->map_size] = NULL;
-	// int i = 0;
-	// while (mainstruct->image_bg[i] != NULL)
-	// {
-	// 	i++;
-	// 	printf("%d\n", i);
-	// }
-	mainstruct->image_collectible = malloc((mainstruct->collectible_count + 1)
+	mainstruct->image_collectible = malloc((mainstruct->collectible_count)
 			* sizeof(mlx_image_t));
 	if (mainstruct->image_collectible == NULL)
 		ft_error_message("Malloc Error");
-	mainstruct->image_collectible[mainstruct->collectible_count] = NULL;
-	mainstruct->image_player = malloc(5 * sizeof(mlx_image_t));
+	mainstruct->image_player = malloc(4 * sizeof(mlx_image_t));
 	if (mainstruct->image_player == NULL)
 		ft_error_message("Malloc Error");
-	mainstruct->image_player[4] = NULL;
-	mainstruct->image_exit = malloc(2 * sizeof(mlx_image_t));
+	mainstruct->image_exit = malloc(sizeof(mlx_image_t));
 	if (mainstruct->image_exit == NULL)
 		ft_error_message("Malloc Error");
-	mainstruct->image_exit[1] = NULL;
 	ft_load_texture(mainstruct);
 	return (0);
 }
@@ -56,22 +45,18 @@ int	ft_map_size(t_main *mainstruct)
 
 int	ft_load_texture(t_main *mainstruct)
 {
-	mainstruct->texture_bg = malloc(3 * sizeof(mlx_texture_t));
+	mainstruct->texture_bg = malloc(2 * sizeof(mlx_texture_t));
 	if (mainstruct->texture_bg == NULL)
 		ft_error_message("Malloc Error");
-	mainstruct->texture_bg[2] = NULL;
-	mainstruct->texture_collectible = malloc(2 * sizeof(mlx_texture_t));
+	mainstruct->texture_collectible = malloc(sizeof(mlx_texture_t));
 	if (mainstruct->texture_collectible == NULL)
 		ft_error_message("Malloc Error");
-	mainstruct->texture_collectible[1] = NULL;
-	mainstruct->texture_exit = malloc(2 * sizeof(mlx_texture_t));
+	mainstruct->texture_exit = malloc(sizeof(mlx_texture_t));
 	if (mainstruct->texture_exit == NULL)
 		ft_error_message("Malloc Error");
-	mainstruct->texture_exit[1] = NULL;
-	mainstruct->texture_player = malloc(2 * sizeof(mlx_texture_t)); // doit malloc 5 au final 
+	mainstruct->texture_player = malloc(sizeof(mlx_texture_t)); // malloc de 4 si 4 textures player
 	if (mainstruct->texture_player == NULL)
 		ft_error_message("Malloc Error");
-	mainstruct->texture_player[1] = NULL;
 	ft_load_png(mainstruct);
 	return (0);
 }
