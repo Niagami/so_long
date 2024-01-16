@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 14:39:08 by jteste            #+#    #+#             */
-/*   Updated: 2023/12/29 15:30:28 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/16 20:31:36 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_error_message(char *message)
 {
-	write(2, "Error\n", 7);
+	ft_printf("Error\n");
 	if (message != NULL)
-		write(2, message, ft_strlen(message));
+		ft_printf("%s\n",message);
 	exit(0);
 }
