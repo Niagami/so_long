@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:45:34 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/15 14:49:36 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/16 16:01:48 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,18 @@ typedef struct s_collectible
 	bool	collected;
 }	t_collectible;
 
+typedef struct s_wall
+{
+	int		x;
+	int		y;
+}	t_wall;
+
+typedef struct s_exit
+{
+	int		x;
+	int		y;
+}	t_exit;
+
 typedef struct s_main
 {
 	char			*mapname;
@@ -40,6 +52,7 @@ typedef struct s_main
 	int				count_line;
 	int				map_exit;
 	int				collectible_count;
+	int				wall_count;
 	int				start_pos;
 	int				player_pos_x;
 	int				player_pos_y;
@@ -54,8 +67,12 @@ typedef struct s_main
 	mlx_texture_t	**texture_exit;
 	mlx_texture_t	**texture_collectible;
 	t_collectible	*collectible;
+	t_wall			*wall;
+	t_exit			*exit;
 	int				index;
 	int				count;
+	int				moove_count;
+	int				collected;
 }				t_main;
 
 int		ft_struct_init(t_main *mainstruct);
@@ -81,10 +98,15 @@ int		ft_collectible_image(t_main *mainstruct);
 int		ft_exit_image(t_main *mainstruct);
 int		ft_player_image(t_main *mainstruct);
 int		ft_display_image(t_main *mainstruct);
+void	ft_count_wall(t_main *mainstruct);
+void	ft_save_wall_pos(t_main *mainstruct);
+void	ft_save_exit_pos(t_main *mainstruct);
 int		ft_display_bg(t_main *smain);
 int		ft_display_collectible(t_main *smain);
 int		ft_display_exit(t_main *smain);
-void	ft_hook(void *param);
-
-
+void	my_keyhook(mlx_key_data_t keydata, void *param);
+void	ft_player_up(t_main *mainstruct);
+void	ft_player_down(t_main *mainstruct);
+void	ft_player_left(t_main *mainstruct);
+void	ft_player_right(t_main *mainstruct);
 #endif

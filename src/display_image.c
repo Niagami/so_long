@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:08:12 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/15 15:08:22 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/16 14:35:19 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,19 +96,19 @@ int	ft_display_exit(t_main *smain)
 	return (0);
 }
 
-void	ft_hook(void *param)
+void	my_keyhook(mlx_key_data_t keydata, void *param)
 {
 	t_main	*mainstruct;
 
 	mainstruct = param;
-	if (mlx_is_key_down(mainstruct->mlx_ptr, MLX_KEY_ESCAPE))
+	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
+		ft_player_up(mainstruct);
+	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
+		ft_player_down(mainstruct);
+	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
+		ft_player_right(mainstruct);
+	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
+		ft_player_left(mainstruct);
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 		mlx_close_window(mainstruct->mlx_ptr);
-	if (mlx_is_key_down(mainstruct->mlx_ptr, MLX_KEY_UP))
-		mainstruct->image_player[0]->instances[0].y -= 64;
-	if (mlx_is_key_down(mainstruct->mlx_ptr, MLX_KEY_DOWN))
-		mainstruct->image_player[0]->instances[0].y += 64;
-	if (mlx_is_key_down(mainstruct->mlx_ptr, MLX_KEY_LEFT))
-		mainstruct->image_player[0]->instances[0].x -= 64;
-	if (mlx_is_key_down(mainstruct->mlx_ptr, MLX_KEY_RIGHT))
-		mainstruct->image_player[0]->instances[0].x += 64;
 }

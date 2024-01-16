@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 12:16:57 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/15 12:51:22 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/16 15:44:48 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_struct_init(t_main *mainstruct)
 	mainstruct->start_pos = 0;
 	mainstruct->map_size = 0;
 	mainstruct->count = 0;
+	mainstruct->wall_count = 0;
+	mainstruct->moove_count = 1;
 	return (0);
 }
 
@@ -51,6 +53,54 @@ void	ft_save_collectible_pos(t_main *mainstruct)
 				mainstruct->collectible[k].x = j;
 				mainstruct->collectible[k].y = mainstruct->index;
 				mainstruct->collectible[k].collected = false;
+				k++;
+			}
+			j++;
+		}
+		mainstruct->index++;
+	}
+}
+
+void	ft_count_wall(t_main *mainstruct)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (mainstruct->map[i] != NULL)
+	{
+		j = 0;
+		while (mainstruct->map[i][j] != '\0')
+		{
+			if (mainstruct->map[i][j] == '1')
+				mainstruct->wall_count++;
+			j++;
+		}
+		i++;
+	}
+}
+
+void	ft_save_wall_pos(t_main *mainstruct)
+{
+	int	j;
+	int	k;
+
+	ft_count_wall(mainstruct);
+	mainstruct->index = 0;
+	k = 0;
+	mainstruct->wall = malloc((mainstruct->wall_count)
+			* sizeof(t_wall));
+	if (mainstruct->wall == NULL)
+		ft_error_message("Malloc error");
+	while (mainstruct->map[mainstruct->index] != NULL)
+	{
+		j = 0;
+		while (mainstruct->map[mainstruct->index][j] != '\0')
+		{
+			if (mainstruct->map[mainstruct->index][j] == '1')
+			{
+				mainstruct->wall[k].x = j;
+				mainstruct->wall[k].y = mainstruct->index;
 				k++;
 			}
 			j++;
