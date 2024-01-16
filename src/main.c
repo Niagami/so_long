@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:39:50 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/16 20:53:13 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/16 22:06:17 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	main(int argc, char *argv[])
 	ft_texture_to_image(&mainstruct);
 	ft_display_image(&mainstruct);
 	mlx_key_hook(mainstruct.mlx_ptr, &my_keyhook, &mainstruct);
-	// mlx_loop_hook(mainstruct.mlx_ptr, &ft_display_item, &mainstruct);
 	mlx_loop(mainstruct.mlx_ptr);
 	free(mainstruct.mlx_ptr);
 	return (0);
