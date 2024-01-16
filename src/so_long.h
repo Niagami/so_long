@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:45:34 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/16 16:01:48 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/16 16:08:53 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,5 @@ void	ft_player_up(t_main *mainstruct);
 void	ft_player_down(t_main *mainstruct);
 void	ft_player_left(t_main *mainstruct);
 void	ft_player_right(t_main *mainstruct);
+void	ft_display_item(void *param);
 #endif
