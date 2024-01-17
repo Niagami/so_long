@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:58:25 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/15 12:55:04 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/17 13:37:44 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_load_image(t_main *mainstruct)
 			* sizeof(mlx_image_t));
 	if (mainstruct->image_collectible == NULL)
 		ft_error_message("Malloc Error");
-	mainstruct->image_player = malloc(4 * sizeof(mlx_image_t));
+	mainstruct->image_player = malloc(sizeof(mlx_image_t));
 	if (mainstruct->image_player == NULL)
 		ft_error_message("Malloc Error");
 	mainstruct->image_exit = malloc(sizeof(mlx_image_t));
@@ -54,7 +54,7 @@ int	ft_load_texture(t_main *mainstruct)
 	mainstruct->texture_exit = malloc(sizeof(mlx_texture_t));
 	if (mainstruct->texture_exit == NULL)
 		ft_error_message("Malloc Error");
-	mainstruct->texture_player = malloc(sizeof(mlx_texture_t)); // malloc de 4 si 4 textures player
+	mainstruct->texture_player = malloc(sizeof(mlx_texture_t));
 	if (mainstruct->texture_player == NULL)
 		ft_error_message("Malloc Error");
 	ft_load_png(mainstruct);

@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:08:12 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/16 22:14:25 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/17 13:41:28 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	ft_display_image(t_main *mainstruct)
 	ft_display_bg(mainstruct);
 	ft_display_collectible(mainstruct);
 	ft_display_exit(mainstruct);
-	mlx_image_to_window(mainstruct->mlx_ptr, mainstruct->image_player[0], mainstruct->player_pos_x * 64, mainstruct->player_pos_y * 64);
+	mlx_image_to_window(mainstruct->mlx_ptr, mainstruct->image_player[0],
+		mainstruct->player_pos_x * 64, mainstruct->player_pos_y * 64);
 	return (0);
 }
 
@@ -101,13 +102,17 @@ void	my_keyhook(mlx_key_data_t keydata, void *param)
 	t_main	*mainstruct;
 
 	mainstruct = param;
-	if (keydata.key == MLX_KEY_W && ((keydata.action == MLX_PRESS) || (keydata.action == MLX_REPEAT)))
+	if (keydata.key == MLX_KEY_W && ((keydata.action == MLX_PRESS)
+			|| (keydata.action == MLX_REPEAT)))
 		ft_player_up(mainstruct);
-	if (keydata.key == MLX_KEY_S && ((keydata.action == MLX_PRESS) || (keydata.action == MLX_REPEAT)))
+	if (keydata.key == MLX_KEY_S && ((keydata.action == MLX_PRESS)
+			|| (keydata.action == MLX_REPEAT)))
 		ft_player_down(mainstruct);
-	if (keydata.key == MLX_KEY_D && ((keydata.action == MLX_PRESS) || (keydata.action == MLX_REPEAT)))
+	if (keydata.key == MLX_KEY_D && ((keydata.action == MLX_PRESS)
+			|| (keydata.action == MLX_REPEAT)))
 		ft_player_right(mainstruct);
-	if (keydata.key == MLX_KEY_A && ((keydata.action == MLX_PRESS) || (keydata.action == MLX_REPEAT)))
+	if (keydata.key == MLX_KEY_A && ((keydata.action == MLX_PRESS)
+			|| (keydata.action == MLX_REPEAT)))
 		ft_player_left(mainstruct);
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 		mlx_close_window(mainstruct->mlx_ptr);
