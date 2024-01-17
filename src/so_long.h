@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:45:34 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/16 20:35:49 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/17 16:55:50 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ typedef struct s_main
 
 int		ft_struct_init(t_main *mainstruct);
 int		ft_open_map(t_main *mainstruct);
-int		ft_copy_map(t_main *mainstruct);
+void	ft_copy_map(t_main *mainstruct);
 int		ft_check_map(t_main *mainstruct);
 int		ft_check_size(t_main *mainstruct);
 int		ft_check_sign(t_main *mainstruct);
@@ -87,7 +87,7 @@ int		ft_check_format(t_main *mainstruct);
 void	ft_save_player_pos(t_main *mainstruct, int i, int j);
 void	ft_save_collectible_pos(t_main *mainstruct);
 int		ft_flood_fill(char	**map, int x, int y, int *items);
-void	ft_error_message(char *message);
+void	ft_error_message(char *message, int boolean);
 int		ft_load_texture(t_main *mainstruct);
 int		ft_load_image(t_main *mainstruct);
 int		ft_map_size(t_main *mainstruct);
@@ -110,4 +110,8 @@ void	ft_player_down(t_main *mainstruct);
 void	ft_player_left(t_main *mainstruct);
 void	ft_player_right(t_main *mainstruct);
 void	ft_display_item(void *param);
+void	ft_free_all(t_main *mainstruct, char *message, int boolean);
+void	ft_free_map(t_main *mainstruct);
+void	ft_free_image(t_main *mainstruct);
+void	ft_free_texture(t_main *mainstruct);
 #endif

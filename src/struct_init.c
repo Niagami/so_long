@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 12:16:57 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/16 16:16:56 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/17 16:22:24 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,9 @@ void	ft_save_collectible_pos(t_main *mainstruct)
 
 	mainstruct->index = 0;
 	k = 0;
-	mainstruct->collectible = malloc((mainstruct->collectible_count)
-			* sizeof(t_collectible));
+	mainstruct->collectible = ft_calloc((mainstruct->collectible_count), sizeof(t_collectible));
 	if (mainstruct->collectible == NULL)
-		ft_error_message("Malloc error");
+		ft_free_all(mainstruct, "Malloc error", 1);
 	while (mainstruct->map[mainstruct->index] != NULL)
 	{
 		j = 0;
@@ -89,10 +88,9 @@ void	ft_save_wall_pos(t_main *mainstruct)
 	ft_count_wall(mainstruct);
 	mainstruct->index = 0;
 	k = 0;
-	mainstruct->wall = malloc((mainstruct->wall_count)
-			* sizeof(t_wall));
+	mainstruct->wall = ft_calloc(mainstruct->wall_count, sizeof(t_wall));
 	if (mainstruct->wall == NULL)
-		ft_error_message("Malloc error");
+		ft_free_all(mainstruct, "Malloc error", 1);
 	while (mainstruct->map[mainstruct->index] != NULL)
 	{
 		j = 0;

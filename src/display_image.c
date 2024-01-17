@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:08:12 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/17 13:41:28 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/17 16:29:21 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,5 @@ void	my_keyhook(mlx_key_data_t keydata, void *param)
 			|| (keydata.action == MLX_REPEAT)))
 		ft_player_left(mainstruct);
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
-		mlx_close_window(mainstruct->mlx_ptr);
+		ft_free_all(mainstruct, "Game closed", 0);
 }

@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:58:25 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/17 13:37:44 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/17 16:25:50 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,18 @@
 int	ft_load_image(t_main *mainstruct)
 {
 	mainstruct->map_size = ft_map_size(mainstruct);
-	mainstruct->image_bg = malloc((mainstruct->map_size)
-			* sizeof(mlx_image_t));
+	mainstruct->image_bg = ft_calloc((mainstruct->map_size), sizeof(mlx_image_t));
 	if (mainstruct->image_bg == NULL)
-		ft_error_message("Malloc Error");
-	mainstruct->image_collectible = malloc((mainstruct->collectible_count)
-			* sizeof(mlx_image_t));
+		ft_free_all(mainstruct, "Malloc error", 1);
+	mainstruct->image_collectible = ft_calloc((mainstruct->collectible_count), sizeof(mlx_image_t));
 	if (mainstruct->image_collectible == NULL)
-		ft_error_message("Malloc Error");
-	mainstruct->image_player = malloc(sizeof(mlx_image_t));
+		ft_free_all(mainstruct, "Malloc error", 1);
+	mainstruct->image_player = ft_calloc(1, sizeof(mlx_image_t));
 	if (mainstruct->image_player == NULL)
-		ft_error_message("Malloc Error");
-	mainstruct->image_exit = malloc(sizeof(mlx_image_t));
+		ft_free_all(mainstruct, "Malloc error", 1);
+	mainstruct->image_exit = ft_calloc(1, sizeof(mlx_image_t));
 	if (mainstruct->image_exit == NULL)
-		ft_error_message("Malloc Error");
+		ft_free_all(mainstruct, "Malloc error", 1);
 	ft_load_texture(mainstruct);
 	return (0);
 }
@@ -45,18 +43,18 @@ int	ft_map_size(t_main *mainstruct)
 
 int	ft_load_texture(t_main *mainstruct)
 {
-	mainstruct->texture_bg = malloc(2 * sizeof(mlx_texture_t));
+	mainstruct->texture_bg = ft_calloc(2, sizeof(mlx_texture_t));
 	if (mainstruct->texture_bg == NULL)
-		ft_error_message("Malloc Error");
-	mainstruct->texture_collectible = malloc(sizeof(mlx_texture_t));
+		ft_free_all(mainstruct, "Malloc error", 1);
+	mainstruct->texture_collectible = ft_calloc(1, sizeof(mlx_texture_t));
 	if (mainstruct->texture_collectible == NULL)
-		ft_error_message("Malloc Error");
-	mainstruct->texture_exit = malloc(sizeof(mlx_texture_t));
+		ft_free_all(mainstruct, "Malloc error", 1);
+	mainstruct->texture_exit = ft_calloc(1, sizeof(mlx_texture_t));
 	if (mainstruct->texture_exit == NULL)
-		ft_error_message("Malloc Error");
-	mainstruct->texture_player = malloc(sizeof(mlx_texture_t));
+		ft_free_all(mainstruct, "Malloc error", 1);
+	mainstruct->texture_player = ft_calloc(1, sizeof(mlx_texture_t));
 	if (mainstruct->texture_player == NULL)
-		ft_error_message("Malloc Error");
+		ft_free_all(mainstruct, "Malloc error", 1);
 	ft_load_png(mainstruct);
 	return (0);
 }
@@ -65,18 +63,18 @@ int	ft_load_png(t_main *mainstruct)
 {
 	mainstruct->texture_bg[0] = mlx_load_png("./img/bg.png");
 	if (mainstruct->texture_bg[0] == NULL)
-		ft_error_message("Error loading background texture");
+		ft_free_all(mainstruct, "Error loading background texture", 1);
 	mainstruct->texture_bg[1] = mlx_load_png("./img/wall.png");
 	if (mainstruct->texture_bg[1] == NULL)
-		ft_error_message("Error loading wall texture");
+		ft_free_all(mainstruct, "Error loading wall texture", 1);
 	mainstruct->texture_collectible[0] = mlx_load_png("./img/collectible.png");
 	if (mainstruct->texture_collectible[0] == NULL)
-		ft_error_message("Error loading collectible texture");
+		ft_free_all(mainstruct, "Error loading collectible texture", 1);
 	mainstruct->texture_exit[0] = mlx_load_png("./img/exit.png");
 	if (mainstruct->texture_exit[0] == NULL)
-		ft_error_message("Error loading exit texture");
+		ft_free_all(mainstruct, "Error loading exit texture", 1);
 	mainstruct->texture_player[0] = mlx_load_png("./img/player.png");
 	if (mainstruct->texture_player[0] == NULL)
-		ft_error_message("Error loading player texture");
+		ft_free_all(mainstruct, "Error loading player texture", 1);
 	return (0);
 }

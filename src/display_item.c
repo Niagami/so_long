@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:06:55 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/17 13:30:58 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/17 16:28:06 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ void	ft_display_item(void *param)
 	if ((s->player_pos_x == s->exit[0].x) && (s->player_pos_y
 			== s->exit[0].y) && (s->collected == s->collectible_count))
 	{
-		ft_printf("\n\n\nYou won the game in %d mooves, Congrats !! :D\n\n\n",
-			s->moove_count);
-		exit(0);
+		ft_free_all(s, "\n\n\nYou won the game in %d mooves, Congrats !! :D\n\n\n", 0);
 	}
 }

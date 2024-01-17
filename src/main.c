@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:39:50 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/17 13:37:17 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/17 16:23:37 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ int	main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		ft_error_message("Wrong number of arguments");
+		ft_error_message("Wrong number of arguments", 1);
 		return (1);
 	}
 	mainstruct.mapname = ft_strdup(argv[1]);
+	if (!mainstruct.mapname)
+		ft_free_all(&mainstruct, "Malloc error", 1);
 	ft_struct_init(&mainstruct);
 	ft_open_map(&mainstruct);
 	ft_check_map(&mainstruct);

@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:25:12 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/16 13:46:21 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/17 16:20:24 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,21 @@ int	ft_check_map(t_main *mainstruct)
 	int	items;
 
 	if (ft_check_format(mainstruct) == false)
-		ft_error_message("Wrong map format\n");
+		ft_free_all(mainstruct, "Wrong map format\n", 1);
 	if (ft_check_sign(mainstruct) == false)
-		ft_error_message("Wrong charactere in map\n");
+		ft_free_all(mainstruct, "Wrong caractere in map\n", 1);
 	if (ft_check_size(mainstruct) == false)
-		ft_error_message("Map is not a rectangle\n");
+		ft_free_all(mainstruct, "Map is not a rectangle\n", 1);
 	if (ft_check_count(mainstruct) == false)
-		ft_error_message("Wrong number of Start, Exit or collectible\n");
+		ft_free_all(mainstruct, "Wrong number of Start, Exit or collectible\n", 1);
 	if (ft_check_walls(mainstruct) == false)
-		ft_error_message("Map not surrounded by walls\n");
+		ft_free_all(mainstruct, "Map not surrounded by walls\n", 1);
 	items = mainstruct->collectible_count + mainstruct->map_exit;
 	if ((ft_flood_fill(mainstruct->map, mainstruct->player_pos_x,
 				mainstruct->player_pos_y, &items)) == false)
-		ft_error_message("No valid path in the map");
+		ft_free_all(mainstruct, "No valid path in map\n", 1);
 	free(mainstruct->map);
 	ft_open_map(mainstruct);
-	free(mainstruct->mapname);
 	ft_save_collectible_pos(mainstruct);
 	ft_save_wall_pos(mainstruct);
 	ft_save_exit_pos(mainstruct);

@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:08:54 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/16 13:24:07 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/17 16:22:41 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	ft_save_exit_pos(t_main *mainstruct)
 	int	j;
 
 	mainstruct->index = 0;
-	mainstruct->exit = malloc(sizeof(t_exit));
+	mainstruct->exit = ft_calloc(1, sizeof(t_exit));
 	if (mainstruct->exit == NULL)
-		ft_error_message("Malloc error");
+		ft_free_all(mainstruct, "Malloc error", 1);
 	while (mainstruct->map[mainstruct->index] != NULL)
 	{
 		j = 0;

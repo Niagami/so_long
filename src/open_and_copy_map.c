@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:43:27 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/09 16:14:32 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/17 17:01:01 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_open_map(t_main *mainstruct)
 	line = NULL;
 	fd = open(mainstruct->mapname, O_RDONLY);
 	if (read(fd, 0, 0) < 0 || fd == -1)
-		ft_error_message("Error opening the map");
+		ft_free_all(mainstruct, "Read error", 1);
 	while ((line != NULL) || (mainstruct->count_line == 0))
 	{
 		line = get_next_line(fd);
@@ -34,7 +34,7 @@ int	ft_open_map(t_main *mainstruct)
 	return (0);
 }
 
-int	ft_copy_map(t_main *mainstruct)
+void	ft_copy_map(t_main *mainstruct)
 {
 	int		fd;
 	int		i;
@@ -43,9 +43,9 @@ int	ft_copy_map(t_main *mainstruct)
 	i = 0;
 	line = NULL;
 	fd = open(mainstruct->mapname, O_RDONLY);
-	mainstruct->map = malloc((mainstruct->count_line + 1) * sizeof(char *));
+	mainstruct->map = ft_calloc((mainstruct->count_line + 1), sizeof(char *));
 	if (!mainstruct->map)
-		return (1);
+		ft_free_all(mainstruct, "Malloc error", 1);
 	mainstruct->map[mainstruct->count_line] = NULL;
 	mainstruct->count_line = 0;
 	while ((line != NULL) || (mainstruct->count_line == 0))
@@ -53,11 +53,9 @@ int	ft_copy_map(t_main *mainstruct)
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		mainstruct->map[i] = ft_strdup(line);
+		mainstruct->map[i] = line;
 		mainstruct->count_line++;
 		i++;
-		free(line);
 	}
 	close(fd);
-	return (0);
 }
