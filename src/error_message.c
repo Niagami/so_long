@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 14:39:08 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/17 16:31:25 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/22 15:10:23 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	ft_free_all(t_main *mainstruct, char *message, int boolean)
 	free(mainstruct->wall);
 	free(mainstruct->exit);
 	mlx_terminate(mainstruct->mlx_ptr);
-	free(mainstruct->mlx_ptr);
 	ft_error_message(message, boolean);
 	exit(0);
 }
@@ -47,7 +46,7 @@ void	ft_free_map(t_main *mainstruct)
 	int	i;
 
 	i = 0;
-	while (mainstruct->map[i] != NULL)
+	while (i <= mainstruct->count_line)
 	{
 		free(mainstruct->map[i]);
 		i++;

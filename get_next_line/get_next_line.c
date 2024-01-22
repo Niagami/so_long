@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:51:43 by jteste            #+#    #+#             */
-/*   Updated: 2023/12/28 13:10:07 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/22 13:50:25 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,3 +117,4 @@ char	*get_next_line(int fd)
 	stock = ft_clear_stock(stock);
 	return (line);
 }
+ 

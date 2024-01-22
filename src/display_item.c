@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:06:55 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/17 16:28:06 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/22 13:03:53 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_display_item(void *param)
 		if ((s->player_pos_x == s->collectible[i].x) && (s->player_pos_y
 				== s->collectible[i].y) && s->collectible[i].collected == false)
 		{
-			mlx_delete_image(s->mlx_ptr, s->image_collectible[i]);
+			s->image_collectible[i]->enabled = false;
 			s->collectible[i].collected = true;
 			s->collected++;
 			return ;
