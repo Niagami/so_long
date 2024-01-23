@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:58:25 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/17 16:25:50 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/23 16:26:34 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ int	ft_load_image(t_main *mainstruct)
 	mainstruct->image_exit = ft_calloc(1, sizeof(mlx_image_t));
 	if (mainstruct->image_exit == NULL)
 		ft_free_all(mainstruct, "Malloc error", 1);
+	mainstruct->image_wall = ft_calloc(mainstruct->wall_count, sizeof(mlx_image_t));
+	if (mainstruct->image_exit == NULL)
+		ft_free_all(mainstruct, "Malloc error", 1);
 	ft_load_texture(mainstruct);
 	return (0);
 }
@@ -43,7 +46,7 @@ int	ft_map_size(t_main *mainstruct)
 
 int	ft_load_texture(t_main *mainstruct)
 {
-	mainstruct->texture_bg = ft_calloc(2, sizeof(mlx_texture_t));
+	mainstruct->texture_bg = ft_calloc(1, sizeof(mlx_texture_t));
 	if (mainstruct->texture_bg == NULL)
 		ft_free_all(mainstruct, "Malloc error", 1);
 	mainstruct->texture_collectible = ft_calloc(1, sizeof(mlx_texture_t));
@@ -55,6 +58,9 @@ int	ft_load_texture(t_main *mainstruct)
 	mainstruct->texture_player = ft_calloc(1, sizeof(mlx_texture_t));
 	if (mainstruct->texture_player == NULL)
 		ft_free_all(mainstruct, "Malloc error", 1);
+	mainstruct->texture_wall = ft_calloc(1, sizeof(mlx_texture_t));
+	if (mainstruct->texture_wall == NULL)
+		ft_free_all(mainstruct, "Malloc error", 1);
 	ft_load_png(mainstruct);
 	return (0);
 }
@@ -64,9 +70,6 @@ int	ft_load_png(t_main *mainstruct)
 	mainstruct->texture_bg[0] = mlx_load_png("./img/bg.png");
 	if (mainstruct->texture_bg[0] == NULL)
 		ft_free_all(mainstruct, "Error loading background texture", 1);
-	mainstruct->texture_bg[1] = mlx_load_png("./img/wall.png");
-	if (mainstruct->texture_bg[1] == NULL)
-		ft_free_all(mainstruct, "Error loading wall texture", 1);
 	mainstruct->texture_collectible[0] = mlx_load_png("./img/collectible.png");
 	if (mainstruct->texture_collectible[0] == NULL)
 		ft_free_all(mainstruct, "Error loading collectible texture", 1);
@@ -76,5 +79,8 @@ int	ft_load_png(t_main *mainstruct)
 	mainstruct->texture_player[0] = mlx_load_png("./img/player.png");
 	if (mainstruct->texture_player[0] == NULL)
 		ft_free_all(mainstruct, "Error loading player texture", 1);
+	mainstruct->texture_wall[0] = mlx_load_png("./img/wall.png");
+	if (mainstruct->texture_wall[0] == NULL)
+		ft_free_all(mainstruct, "Error loading wall texture", 1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:40:12 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/17 16:27:10 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/23 16:13:34 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_texture_to_image(t_main *mainstruct)
 {
 	ft_bg_image(mainstruct);
+	ft_wall_image(mainstruct);
 	ft_collectible_image(mainstruct);
 	ft_exit_image(mainstruct);
 	ft_player_image(mainstruct);
@@ -32,13 +33,7 @@ int	ft_bg_image(t_main *smain)
 		k = 0;
 		while (smain->map[j][k] != '\0' && smain->map[j][k] != '\n')
 		{
-			if (smain->map[j][k] == '1')
-				smain->image_bg[smain->count] = mlx_texture_to_image
-					(smain->mlx_ptr, smain->texture_bg[1]);
-			if (!smain->image_bg)
-				ft_free_all(smain, "Error loading texture to image", 1);
-			else if (smain->map[j][k] != '1')
-				smain->image_bg[smain->count] = mlx_texture_to_image
+			smain->image_bg[smain->count] = mlx_texture_to_image
 					(smain->mlx_ptr, smain->texture_bg[0]);
 			if (!smain->image_bg)
 				ft_free_all(smain, "Error loading texture to image", 1);

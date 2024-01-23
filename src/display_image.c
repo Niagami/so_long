@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:08:12 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/17 16:29:21 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/23 16:16:49 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_display_image(t_main *mainstruct)
 {
 	ft_display_bg(mainstruct);
+	ft_display_wall(mainstruct);
 	ft_display_collectible(mainstruct);
 	ft_display_exit(mainstruct);
 	mlx_image_to_window(mainstruct->mlx_ptr, mainstruct->image_player[0],

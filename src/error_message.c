@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 14:39:08 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/23 14:29:39 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/23 17:03:35 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,15 @@ void	ft_error_message(char *message, int boolean)
 
 void	ft_free_all(t_main *mainstruct, char *message, int boolean)
 {
-	int	i;
-
-	i = 0;
 	free(mainstruct->mapname);
 	ft_free_map(mainstruct);
-	ft_free_image(mainstruct);
 	ft_free_texture(mainstruct);
+	ft_free_image(mainstruct);
 	free(mainstruct->collectible);
 	free(mainstruct->wall);
 	free(mainstruct->exit);
-	mlx_terminate(mainstruct->mlx_ptr);
+	if(mainstruct->mlx_ptr)
+		mlx_terminate(mainstruct->mlx_ptr);
 	ft_error_message(message, boolean);
 	exit(0);
 }
@@ -74,15 +72,13 @@ void	ft_free_image(t_main *mainstruct)
 	if (mainstruct->image_player)
 		mlx_delete_image(mainstruct->mlx_ptr, mainstruct->image_player[0]);
 	free(mainstruct->image_player);
+	ft_free_wall(mainstruct);
 }
 
 void	ft_free_texture(t_main *mainstruct)
 {
 	if (mainstruct->texture_bg)
-	{
 		mlx_delete_texture(mainstruct->texture_bg[0]);
-		mlx_delete_texture(mainstruct->texture_bg[1]);
-	}
 	free(mainstruct->texture_bg);
 	if (mainstruct->texture_collectible)
 		mlx_delete_texture(mainstruct->texture_collectible[0]);
@@ -93,4 +89,7 @@ void	ft_free_texture(t_main *mainstruct)
 	if (mainstruct->texture_player)
 		mlx_delete_texture(mainstruct->texture_player[0]);
 	free(mainstruct->texture_player);
+	if (mainstruct->texture_wall)
+		mlx_delete_texture(mainstruct->texture_wall[0]);
+	free(mainstruct->texture_wall);
 }

@@ -6,12 +6,12 @@
 #    By: jteste <jteste@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 11:42:35 by jteste            #+#    #+#              #
-#    Updated: 2024/01/17 15:49:12 by jteste           ###   ########.fr        #
+#    Updated: 2024/01/23 16:59:14 by jteste           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= so_long
-CFLAGS		:= -Wextra -Wall -Werror -Wunreachable-code -Ofast
+CFLAGS		:= -Wextra -Wall -Werror -Wunreachable-code -Ofast -g3
 LIBMLX		:= ./MLX42/build
 FTPRINTF	:= ./printf
 GNL			:= ./get_next_line

@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:45:34 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/17 16:55:50 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/23 16:32:34 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct s_main
 	void			*mlx_ptr;
 	void			*win_ptr;
 	mlx_image_t		**image_bg;
+	mlx_image_t		**image_wall;
 	mlx_image_t		**image_collectible;
 	mlx_image_t		**image_player;
 	mlx_image_t		**image_exit;
@@ -66,6 +67,7 @@ typedef struct s_main
 	mlx_texture_t	**texture_bg;
 	mlx_texture_t	**texture_exit;
 	mlx_texture_t	**texture_collectible;
+	mlx_texture_t	**texture_wall;
 	t_collectible	*collectible;
 	t_wall			*wall;
 	t_exit			*exit;
@@ -95,6 +97,7 @@ int		ft_load_png(t_main *mainstruct);
 int		ft_texture_to_image(t_main *mainstruct);
 int		ft_bg_image(t_main *mainstruct);
 int		ft_collectible_image(t_main *mainstruct);
+int		ft_wall_image(t_main *mainstruct);
 int		ft_exit_image(t_main *mainstruct);
 int		ft_player_image(t_main *mainstruct);
 int		ft_display_image(t_main *mainstruct);
@@ -104,6 +107,7 @@ void	ft_save_exit_pos(t_main *mainstruct);
 int		ft_display_bg(t_main *smain);
 int		ft_display_collectible(t_main *smain);
 int		ft_display_exit(t_main *smain);
+int		ft_display_wall(t_main *smain);
 void	my_keyhook(mlx_key_data_t keydata, void *param);
 void	ft_player_up(t_main *mainstruct);
 void	ft_player_down(t_main *mainstruct);
@@ -114,4 +118,5 @@ void	ft_free_all(t_main *mainstruct, char *message, int boolean);
 void	ft_free_map(t_main *mainstruct);
 void	ft_free_image(t_main *mainstruct);
 void	ft_free_texture(t_main *mainstruct);
+void	ft_free_wall(t_main *mainstruct);
 #endif
