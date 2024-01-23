@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 14:39:08 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/22 15:10:23 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/23 14:29:39 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,9 @@ void	ft_free_all(t_main *mainstruct, char *message, int boolean)
 	int	i;
 
 	i = 0;
-	printf("1\n");
 	free(mainstruct->mapname);
-	printf("2\n");
 	ft_free_map(mainstruct);
-	printf("3\n");
 	ft_free_image(mainstruct);
-	printf("4\n");
 	ft_free_texture(mainstruct);
 	free(mainstruct->collectible);
 	free(mainstruct->wall);

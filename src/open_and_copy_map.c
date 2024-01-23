@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:43:27 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/22 15:37:35 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/23 14:28:49 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ void	ft_copy_map(t_main *mainstruct)
 	mainstruct->map = ft_calloc((mainstruct->count_line + 1), sizeof(char *));
 	if (!mainstruct->map)
 		ft_free_all(mainstruct, "Malloc error", 1);
-	mainstruct->map[mainstruct->count_line+1] = NULL;
+	mainstruct->map[mainstruct->count_line] = NULL;
 	mainstruct->count_line = 0;
 	while ((line != NULL) || (mainstruct->count_line == 0))
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		mainstruct->map[mainstruct->index] = line;
+		mainstruct->map[mainstruct->index] = ft_strdup(line);
 		mainstruct->count_line++;
 		mainstruct->index++;
 		free(line);
