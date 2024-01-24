@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:08:54 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/23 17:04:36 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/24 16:15:45 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	ft_save_exit_pos(t_main *mainstruct)
 		mainstruct->index++;
 	}
 }
+
 int	ft_wall_image(t_main *mainstruct)
 {
 	int	i;
@@ -53,7 +54,8 @@ int	ft_wall_image(t_main *mainstruct)
 				mainstruct->image_wall[i] = mlx_texture_to_image
 					(mainstruct->mlx_ptr, mainstruct->texture_wall[0]);
 				if (!mainstruct->image_wall)
-					ft_free_all(mainstruct, "Error loading texture to image", 1);
+					ft_free_all(mainstruct,
+						"Error loading texture to image", 1);
 				i++;
 			}
 			k++;
@@ -62,6 +64,7 @@ int	ft_wall_image(t_main *mainstruct)
 	}
 	return (0);
 }
+
 int	ft_display_wall(t_main *smain)
 {
 	int	i;
@@ -87,6 +90,7 @@ int	ft_display_wall(t_main *smain)
 	}
 	return (0);
 }
+
 void	ft_free_wall(t_main *mainstruct)
 {
 	int	i;

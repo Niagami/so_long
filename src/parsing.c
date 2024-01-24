@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:25:12 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/24 15:08:47 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/24 16:08:30 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int	ft_check_sign(t_main *mainstruct)
 			&& (mainstruct->map[i][j] != 'C')
 			&& (mainstruct->map[i][j] != 'P')
 			&& (mainstruct->map[i][j] != 'E')
+			&& (mainstruct->map[i][j] != '\r')
 			&& (mainstruct->map[i][j] != '\n'))
 				return (false);
 			j++;
