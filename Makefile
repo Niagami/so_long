@@ -12,12 +12,12 @@
 
 NAME		:= so_long
 CFLAGS		:= -Wextra -Wall -Werror -Wunreachable-code -Ofast -g3
-LIBMLX		:= ./MLX42/build
+LIBMLX		:= ./MLX42
 FTPRINTF	:= ./printf
 GNL			:= ./get_next_line
 
 HEADERS	:= -I ./include -I $(LIBMLX)/include
-LIBS	:= $(GNL)/gnl.a $(FTPRINTF)/libftprintf.a $(LIBMLX)/libmlx42.a  -lglfw -lm 
+LIBS	:= $(GNL)/gnl.a $(FTPRINTF)/libftprintf.a $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 SRCS	:= $(shell find ./src -iname "*.c")
 OBJS	:= ${SRCS:.c=.o}
 
@@ -30,7 +30,7 @@ ftprintf:
 	@$(MAKE) -C $(FTPRINTF)
 
 libmlx:
-	@$(MAKE) -C $(LIBMLX)
+	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
@@ -40,15 +40,16 @@ $(NAME): $(OBJS) ftprintf gnl
 
 clean:
 	@rm -f $(OBJS)
+	@rm -rf $(LIBMLX)/build
 	@$(MAKE) -C $(GNL) clean
 	@$(MAKE) -C $(FTPRINTF) clean
-	@$(MAKE) -C $(LIBMLX) clean
 
 fclean: clean
 	@rm -f $(NAME)
 	@$(MAKE) -C $(GNL) fclean
 	@$(MAKE) -C $(FTPRINTF) fclean
-	@$(MAKE) -C $(LIBMLX) fclean
+	
+
 
 re: clean all
 
