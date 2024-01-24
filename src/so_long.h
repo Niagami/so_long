@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:45:34 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/23 16:32:34 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/24 15:15:01 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int		ft_check_format(t_main *mainstruct);
 void	ft_save_player_pos(t_main *mainstruct, int i, int j);
 void	ft_save_collectible_pos(t_main *mainstruct);
 int		ft_flood_fill(char	**map, int x, int y, int *items);
-void	ft_error_message(char *message, int boolean);
+int		ft_error_message(char *message, int boolean);
 int		ft_load_texture(t_main *mainstruct);
 int		ft_load_image(t_main *mainstruct);
 int		ft_map_size(t_main *mainstruct);
@@ -109,6 +109,7 @@ int		ft_display_collectible(t_main *smain);
 int		ft_display_exit(t_main *smain);
 int		ft_display_wall(t_main *smain);
 void	my_keyhook(mlx_key_data_t keydata, void *param);
+void	my_close_hook(void *param);
 void	ft_player_up(t_main *mainstruct);
 void	ft_player_down(t_main *mainstruct);
 void	ft_player_left(t_main *mainstruct);

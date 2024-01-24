@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 12:16:57 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/17 16:22:24 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/24 14:32:18 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void	ft_save_collectible_pos(t_main *mainstruct)
 
 	mainstruct->index = 0;
 	k = 0;
-	mainstruct->collectible = ft_calloc((mainstruct->collectible_count), sizeof(t_collectible));
+	mainstruct->collectible = ft_calloc((mainstruct->collectible_count),
+			sizeof(t_collectible));
 	if (mainstruct->collectible == NULL)
 		ft_free_all(mainstruct, "Malloc error", 1);
 	while (mainstruct->map[mainstruct->index] != NULL)

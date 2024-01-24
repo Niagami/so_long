@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:58:25 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/23 16:26:34 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/24 15:16:05 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 int	ft_load_image(t_main *mainstruct)
 {
 	mainstruct->map_size = ft_map_size(mainstruct);
-	mainstruct->image_bg = ft_calloc((mainstruct->map_size), sizeof(mlx_image_t));
+	mainstruct->image_bg = ft_calloc((mainstruct->map_size),
+			sizeof(mlx_image_t));
 	if (mainstruct->image_bg == NULL)
 		ft_free_all(mainstruct, "Malloc error", 1);
-	mainstruct->image_collectible = ft_calloc((mainstruct->collectible_count), sizeof(mlx_image_t));
+	mainstruct->image_collectible = ft_calloc((mainstruct->collectible_count),
+			sizeof(mlx_image_t));
 	if (mainstruct->image_collectible == NULL)
 		ft_free_all(mainstruct, "Malloc error", 1);
 	mainstruct->image_player = ft_calloc(1, sizeof(mlx_image_t));
@@ -27,7 +29,8 @@ int	ft_load_image(t_main *mainstruct)
 	mainstruct->image_exit = ft_calloc(1, sizeof(mlx_image_t));
 	if (mainstruct->image_exit == NULL)
 		ft_free_all(mainstruct, "Malloc error", 1);
-	mainstruct->image_wall = ft_calloc(mainstruct->wall_count, sizeof(mlx_image_t));
+	mainstruct->image_wall = ft_calloc(mainstruct->wall_count,
+			sizeof(mlx_image_t));
 	if (mainstruct->image_exit == NULL)
 		ft_free_all(mainstruct, "Malloc error", 1);
 	ft_load_texture(mainstruct);
