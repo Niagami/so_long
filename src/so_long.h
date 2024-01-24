@@ -6,7 +6,7 @@
 /*   By: jteste <jteste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:45:34 by jteste            #+#    #+#             */
-/*   Updated: 2024/01/24 15:15:01 by jteste           ###   ########.fr       */
+/*   Updated: 2024/01/24 19:21:44 by jteste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ typedef struct s_main
 	int				collected;
 }				t_main;
 
-int		ft_struct_init(t_main *mainstruct);
 int		ft_open_map(t_main *mainstruct);
 void	ft_copy_map(t_main *mainstruct);
 int		ft_check_map(t_main *mainstruct);
